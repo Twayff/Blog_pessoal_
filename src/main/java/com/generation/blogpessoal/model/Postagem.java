@@ -29,7 +29,7 @@ public class Postagem {
 	@Size(min = 5, max= 100, message = "O atríbuto título deve conter no mínimo 05 caracteres, e no máximo 100")
 	private String titulo;
 	
-	@NotBlank(message= "O atributo do título é obrigatório")
+	@NotBlank(message= "O atributo do texto é obrigatório")
 	@Size(min = 10, max= 1000, message = "O atríbuto título deve conter no mínimo 10 caracteres, e no máximo 1000")
 	private String texto;
 	
@@ -39,6 +39,11 @@ public class Postagem {
 	@ManyToOne
 	@JsonIgnoreProperties("Postagem")
 	private Tema tema;
+	
+	
+	@ManyToOne
+	@JsonIgnoreProperties("postagem")
+	private Usuario usuario;
 	
 	
 	public Tema getTema() {
@@ -80,6 +85,16 @@ public class Postagem {
 	public void setData(LocalDateTime data) {
 		this.data = data;
 	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
+	
 	
 	
 }

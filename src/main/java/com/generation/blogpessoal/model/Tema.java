@@ -1,8 +1,8 @@
 package com.generation.blogpessoal.model;
 
 
+import java.util.List;
 
-import org.hibernate.mapping.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -31,19 +31,12 @@ import jakarta.validation.constraints.NotNull;
 		
 		@OneToMany(fetch = FetchType.LAZY, mappedBy = "tema", cascade = CascadeType.REMOVE)
 		@JsonIgnoreProperties("tema")
-		private List postagem;
-		
-		
+		private List<Postagem> postagem;
+	
 		
 		
 
-		public List getPostagem() {
-			return postagem;
-		}
-
-		public void setPostagem(List postagem) {
-			this.postagem = postagem;
-		}
+	
 
 		public Long getId() {
 			return this.id;
@@ -59,6 +52,14 @@ import jakarta.validation.constraints.NotNull;
 
 		public void setDescricao(String descricao) {
 			this.descricao = descricao;
+		}
+		
+		public List<Postagem> getPostagem() {
+			return postagem;
+		}
+
+		public void setPostagem(List<Postagem> postagem) {
+			this.postagem = postagem;
 		}
 
 	}
